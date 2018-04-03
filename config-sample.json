@@ -1,0 +1,63 @@
+{
+  "bridge":{
+    "name":"Homebridge",
+    "username":"CD:22:3D:E3:CE:30",
+    "port":51826,
+    "pin":"031-45-154"
+  },
+  "description":"Homebridge",
+  "accessories":[
+
+  ],
+  "platforms":[
+    {
+      "platform":"AppleTV",
+      "name":"Apple TV",
+      "devices": [ ],
+      "accessories": [
+        {
+          "deviceID": "lounge",
+          "name": "Up",
+          "command": "up"
+        },
+        {
+          "deviceID": "lounge",
+          "name": "Down",
+          "command": "down"
+        },
+        {
+          "deviceID": "lounge",
+          "name": "Left",
+          "command": "left"
+        },
+        {
+          "deviceID": "lounge",
+          "name": "Right",
+          "command": "right"
+        },
+        {
+          "deviceID": "lounge",
+          "name": "Select",
+          "command": "select"
+        },
+        {
+          "deviceID": "lounge",
+          "name": "Up Next",
+          "command": [
+            {
+              "command": "menu",
+              "repeat": 7,
+              "interval": 0.3,
+              "pause": 1
+            },
+            {
+              "command": "tv",
+              "pause": 3
+            },
+            "select" 
+          ]
+        }
+      ]
+    }
+  ]
+}
