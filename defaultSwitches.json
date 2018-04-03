@@ -1,0 +1,46 @@
+[
+    {
+      "name": "Menu",
+      "command": "menu"
+    },
+    {
+      "name": "TV/Home",
+      "command": "tv"
+    },
+    {
+      "name": "Mic/Siri",
+      "command": "mic"
+    },
+    {
+      "name": "Play",
+      "command": "play"
+    },
+    {
+      "name": "Pause",
+      "command": "pause"
+    },
+    {
+      "name": "Up",
+      "command": "up"
+    },
+    {
+      "name": "Down",
+      "command": "down"
+    },
+    {
+      "name": "Left",
+      "command": "left"
+    },
+    {
+      "name": "Right",
+      "command": "right"
+    },
+    {
+      "name": "Select",
+      "command": "select"
+    },
+    {
+      "name": "Sleep",
+      "command": "sleep"
+    }
+  ]

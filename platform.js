@@ -11,6 +11,8 @@ const AppleTVPlatform = class extends HomebridgePlatform {
 
   constructor (log, config = {}) {
     super(log, config, homebridgeRef);
+
+    if (!config.devices) config.devices = [];
   }
 
   async addAccessories (accessories) {
@@ -36,9 +38,31 @@ const AppleTVPlatform = class extends HomebridgePlatform {
 
         log(`\x1b[35m[INFO]\x1b[0m Added pair switch for Apple TV (${appleTV.name}) at ${appleTV.address}`)
       }
+
     });
 
     await connectToDevices(config, log);
+
+    config.devices.forEach((device) => {
+      // Add default switches
+      if (config.showDefaultSwitches === true) {
+        const defaultSwitches = require('./defaultSwitches.json');
+
+        defaultSwitches.forEach((accessory) => {
+          accessory.deviceID = device.id;
+
+          if (config.defaultSwitchesIncludeATVName !== false) {
+            accessory.name = `${accessory.name} (${device.name})`;
+          }
+
+          const switchAccessory = new Accessory.Switch(log, accessory);
+          console.log('switchAccessory', switchAccessory)
+          accessories.push(switchAccessory);
+        })
+
+        log(`\x1b[35m[INFO]\x1b[0m Added default switches for Apple TV (${device.name}). `)
+      }
+    });
 
     // Itterate through the config accessories
     config.accessories.forEach((accessory) => {
